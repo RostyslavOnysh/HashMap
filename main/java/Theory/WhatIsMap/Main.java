@@ -33,5 +33,8 @@ public class Main {
                 + " , and population of this country : "
                 + ukrainePopulation + " people");
 
+        System.out.println(capitalSities.keySet()); // keys
+        System.out.println(capitalSities.values()); // value
+
     }
 }
