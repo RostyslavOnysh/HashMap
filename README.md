@@ -103,3 +103,51 @@ The performance of HashMap depends on 2 parameters which are named as follows:
 * *Rehashing – It is the process of doubling the capacity of the HashMap after it reaches its Threshold. In java, HashMap continues to rehash(by default) in the following sequence – 2^4, 2^5, 2^6, 2^7, …. so on.* 
 
 If the initial capacity is kept higher then rehashing will never be done. But by keeping it higher increases the time complexity of iteration. So it should be chosen very cleverly to increase performance. The expected number of values should be taken into account to set the initial capacity. The most generally preferred load factor value is 0.75 which provides a good deal between time and space costs. The load factor’s value varies between 0 and 1. 
+
+# Collision
+В Java, колізія відноситься до ситуації, коли два або більше ключів у HashMap (або іншій хеш-таблиці) вказують на один і той же індекс (bucket) у внутрішньому масиві, де зберігаються значення, відповідні цим ключам. Такі ключі називаються колізійними ключами.
+При спробі додати колізійний ключ в HashMap, його значення зберігається в списку, що містить усі значення, що були збережені під цим же індексом. Під час пошуку значення, яке відповідає ключу, який може бути колізійним, HashMap спочатку використовує хеш-функцію, щоб знайти потрібний індекс, а потім перевіряє усі значення в списку, які зберігаються під цим індексом, щоб знайти потрібне значення.
+* ***Колізії можуть знижувати швидкість роботи HashMap***, тому що додатково потрібно виконувати пошук по списку, а не тільки по індексу. Щоб зменшити імовірність колізій, рекомендується використовувати хеш-функції, які розподіляють ключі рівномірно по всьому масиву. Також можна збільшити розмір масиву, щоб зменшити кількість колізій.
+
+* Колізія строкових ключів : 
+
+```java
+Map<String, Integer> map = new HashMap<>();
+map.put("apple", 1);
+map.put("orange", 2);
+map.put("banana", 3);
+map.put("dog", 4);
+map.put("god", 5);
+```
+У цьому прикладі, ключі "dog" та "god" мають однаковий хеш-код, тому вони вказують на той самий індекс у HashMap. Оскільки ключ "god" був доданий пізніше, він буде збережений в списку для цього індексу, тому пошук ключа "god" поверне значення 5, а не 4.
+
+* Колізія ключів з власними реалізаціями хеш-функцій : 
+```java 
+class MyKey {
+    private int id;
+    
+    public MyKey(int id) {
+        this.id = id;
+    }
+    
+    @Override
+    public int hashCode() {
+        return id % 2; // Завжди повертає 0 або 1
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyKey myKey = (MyKey) o;
+        return id == myKey.id;
+    }
+}
+
+Map<MyKey, String> map = new HashMap<>();
+map.put(new MyKey(1), "one");
+map.put(new MyKey(2), "two");
+map.put(new MyKey(3), "three");
+map.put(new MyKey(4), "four");
+```
+У цьому прикладі, реалізація хеш-функції для класу MyKey завжди повертає 0 або 1, залежно від того, чи є id парним або непарним числом. Це призводить до колізій, оскільки ключі з парними id та ключі з непарними id будуть мати однаковий хеш-код. У цьому прикладі, ключі з id=1 та id=3 вказують на той самий індекс у HashMap, тому другий ключ буде доданий до списку значень, що зберігаються за цим індексом.
