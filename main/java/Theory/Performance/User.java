@@ -29,9 +29,9 @@ public class User {
 
     @Override
     public int hashCode() {
-        return age;
+        return Objects.hash(name,lastName,age);
         /*
-        в випадку перевизначення буде помилково використовувати тільки  "return age;"
+      return age;   в випадку перевизначення буде помилково використовувати тільки  "return age;"
         */
     }
 
