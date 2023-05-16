@@ -3,7 +3,8 @@
 * Our store is the best in the area, so we may run out of goods very quickly.
 We decided to order each of the units of goods, and now we are waiting for delivery.
 
-* Let's implement the method public Map<String, Integer> supplyFruits(Map<String, Integer> storage, int supply) which will update our stock to the actual quantity of goods.
+* Let's implement the method public Map<String, Integer> supplyFruits(Map<String, Integer> storage, int supply) which will
+ update our stock to the actual quantity of goods.
 
 ### Method parameters:
 
@@ -37,6 +38,19 @@ storage = {
 додаємо до неї значення ***supply*** (кількість одиниць нового товару) і оновлюємо цю кількість в ***storage***.
 Нарешті, ми повертаємо оновлений storage як результат виконання методу ***supplyFruits***.
 
+
+## Це другий варіант рішення :
+```java
+ for (Map.Entry<String, Integer> entry : storage.entrySet()) {
+      String key = entry.getKey();
+      int actualValue = entry.getValue();
+      int updatedValue = actualValue + supply;
+      storage.put(key, updatedValue);
+    }
+    return storage;
+  }
+}
+```
 
 # Third solving explanation :
 
