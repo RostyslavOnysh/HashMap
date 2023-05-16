@@ -38,7 +38,7 @@ storage = {
 Нарешті, ми повертаємо оновлений storage як результат виконання методу ***supplyFruits***.
 
 
-# Third soling explanation :
+# Third solving explanation :
 
 ```java
 for (Map.Entry<String, Integer> fruit : storage.entrySet()) {
