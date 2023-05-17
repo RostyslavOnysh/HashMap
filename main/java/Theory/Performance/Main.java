@@ -22,6 +22,9 @@ public class Main {
         usersFavouriteSubjects.put(john,List.of("Biology","Chemistry"));
         usersFavouriteSubjects.put(bill,List.of("Atr","Music"));
 
+        int size = usersFavouriteSubjects.size();
+        System.out.println(size);
+
         // get value by key
         System.out.println(usersFavouriteSubjects.get(bob));
         System.out.println(usersFavouriteSubjects.get(alice));
