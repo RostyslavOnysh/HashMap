@@ -47,5 +47,5 @@ where the ***key*** is the employee, and the ***value*** is the city in which he
 3. Отримання запису ***Map.Entry<Employee, String>*** забезпечує нам доступ до *ключа (об'єкта Employee)* та *значення (рядка)*,
 пов'язаних з кожним записом у мапі. Таким чином, ми можемо отримати рік народження працівника ***(employee.getKey().getYearOfBirth())***
 та місто, де він працює ***(employee.getValue())***, щоб перевірити умови задачі.
-4. Коротше кажучи, використання ***Map.Entry<Employee, String>***~~~~ дозволяє нам отримати доступ до ключа (об'єкта Employee) 
+4. Коротше кажучи, використання ***Map.Entry<Employee, String>*** дозволяє нам отримати доступ до ключа (об'єкта Employee) 
    та значення (рядка) кожного запису у мапі employeesInformation.
