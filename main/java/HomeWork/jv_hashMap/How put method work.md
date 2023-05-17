@@ -56,7 +56,7 @@ ensuring efficient retrieval and storage based on the calculated hash codes.
 It would be a good idea to start by writing a resize method that helps the map to grow when needed and prevent collisions. 
 This method can also rehash the elements to distribute them evenly in the new data structure.
 This will help prevent collisions and improve the efficiency of read and write operations.
-~~~~
+
 # Метод put(K key, V value) в HashMap використовується для додавання або оновлення елемента у мапі. Ось як це працює:
 
 Метод put приймає два параметри: ключ типу K та значення типу V. Ключ представляє унікальний ідентифікатор елемента,
