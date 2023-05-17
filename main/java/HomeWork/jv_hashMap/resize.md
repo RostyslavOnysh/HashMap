@@ -31,17 +31,7 @@ for each array index.
 
 ### These are general steps for implementing the resize() method to avoid collisions. 
 ### Depending on your specific map implementation and chosen collision avoidance strategy,
-### there may be additional steps or nuances to con~~~~sider.
-
-
-
-
-
-
-
-
-
-
+### there may be additional steps or nuances to consider.
 
 
 
@@ -74,6 +64,3 @@ for each array index.
 #### Це загальна ідея для реалізації методу resize(), що допомагає уникати колізій. 
 #### Залежно від вашої конкретної реалізації мапи та вибраної стратегії уникнення колізій, 
 #### можуть бути додаткові кроки або нюанси.
-
-
-
